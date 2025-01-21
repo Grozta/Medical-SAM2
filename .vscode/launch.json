@@ -1,0 +1,58 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "BTCV_MedSAM2",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/train_3d.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false,
+            "args": [
+                "-net", "sam2",
+                "-exp_name", "BTCV_MedSAM2_debug",
+                "-sam_ckpt","./checkpoints/sam2_hiera_small.pt",
+                "-sam_config","sam2_hiera_s",
+                "-image_size","1024",
+                "-val_freq","1",
+                "-prompt","bbox",
+                "-prompt_freq","2",
+                "-dataset","btcv",
+                "-data_path","/media/grozta/SOYO/DATASET/SAM2/btcv",
+
+            ],
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0",
+            },
+        },{
+            "name": "REFUGE_MedSAM2",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/train_2d.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false,
+            "args": [
+                "-net", "sam2",
+                "-exp_name", "REFUGE_MedSAM2_debug",
+                "-vis","1",
+                "-sam_ckpt","./checkpoints/sam2_hiera_small.pt",
+                "-sam_config","sam2_hiera_s",
+                "-image_size","1024",
+                "-out_size", "1024", 
+                "-b", "4",
+                "-val_freq","1",
+                "-dataset","REFUGE",
+                "-data_path","/media/grozta/SOYO/DATASET/SAM2/REFUGE",
+
+            ],
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0",
+            },
+        }
+    ]
+}

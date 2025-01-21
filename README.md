@@ -10,10 +10,10 @@ Medical SAM 2, or say MedSAM-2, is an advanced segmentation model that utilizes 
 image segmentation tasks. This method is elaborated on the paper [Medical SAM 2: Segment Medical Images As Video Via Segment Anything Model 2](https://arxiv.org/abs/2408.00874).
 
 ## 🔥 A Quick Overview 
- <div align="center"><img width="880" height="350" src="https://github.com/MedicineToken/Medical-SAM2/blob/main/vis/framework.png"></div>
+ <div align="center"><img width="880" height="350" src="./vis/framework.png"></div>
  
 ## 🩻 3D Abdomen Segmentation Visualisation
- <div align="center"><img width="420" height="420" src="https://github.com/MedicineToken/Medical-SAM2/blob/main/vis/example.gif"></div>
+ <div align="center"><img width="420" height="420" src="./vis/example.gif"></div>
 
 ## 🧐 Requirement
 
@@ -48,7 +48,7 @@ We released our pretrain weight [here](https://huggingface.co/jiayuanz3/MedSAM2_
 
  **Step2:** Run the training and validation by:
  
-``python train_2d.py -net sam2 -exp_name REFUGE_MedSAM2 -vis 1 -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -out_size 1024 -b 4 -val_freq 1 -dataset REFUGE -data_path ./data/REFUGE``
+``python train_2d.py -net sam2 -exp_name REFUGE_MedSAM2 -vis 1 -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -out_size 1024 -b 4 -val_freq 1 -dataset REFUGE -data_path /media/grozta/SOYO/DATASET/SAM2/REFUGE``
 
  ### 3D case - Abdominal Multiple Organs Segmentation
  
@@ -61,7 +61,7 @@ We released our pretrain weight [here](https://huggingface.co/jiayuanz3/MedSAM2_
 **Step2:** Run the training and validation by:
 
 
- ``python train_3d.py -net sam2 -exp_name BTCV_MedSAM2 -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 1 -prompt bbox -prompt_freq 2 -dataset btcv -data_path ./data/btcv``
+ ``python train_3d.py -net sam2 -exp_name BTCV_MedSAM2 -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 1 -prompt bbox -prompt_freq 2 -dataset btcv -data_path /media/grozta/SOYO/DATASET/SAM2/btcv``
 
 
 ## 🚨 News
