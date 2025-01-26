@@ -60,10 +60,13 @@ class BTCV(Dataset):
             video_length = int(num_frame / 4)
         else:
             video_length = self.video_length
+            # 这里的num_frame是指存在mask的numpy的Depth深度
         if num_frame > video_length and self.mode == 'Training':
             starting_frame = np.random.randint(0, num_frame - video_length + 1)
+            #由于每次取的切片是一个video_length层，所以要限制随机数的范围
         else:
             starting_frame = 0
+            # 这里面的3是指自然图像的通道数
         img_tensor = torch.zeros(video_length, 3, self.img_size, self.img_size)
         mask_dict = {}
         point_label_dict = {}
@@ -85,6 +88,8 @@ class BTCV(Dataset):
                 raise ValueError('Prompt not recognized')
             for obj in obj_list:
                 obj_mask = mask == obj
+                # 这里的obj是类别，obj_mask是一个bool类型的mask
+                # 通过Image库，将原来的mask变成指定的输入尺寸，这里是1024x1024
                 # if self.transform_msk:
                 obj_mask = Image.fromarray(obj_mask)
                 obj_mask = obj_mask.resize(newsize)
@@ -113,6 +118,11 @@ class BTCV(Dataset):
 
 
         image_meta_dict = {'filename_or_obj':name}
+        # 它返回的是一个video中的切片，这个video长度是2.
+        # 这里的img_tensor 2x3x1024x1024
+        # 这里的mask_dict 2xobjx1024x1024
+        # 这里的bbox_dict 2xobjx4
+        # 这里的image_meta_dict {'filename_or_obj':name} 那么是病人3D图的名称 ，如img0023，而不是切片
         if self.prompt == 'bbox':
             return {
                 'image':img_tensor,

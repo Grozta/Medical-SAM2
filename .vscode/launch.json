@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "BTCV_MedSAM2",
+            "name": "BTCV_MedSAM2_small",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/train_3d.py",
@@ -27,6 +27,8 @@
             ],
             "env": {
                 "CUDA_VISIBLE_DEVICES": "0",
+                "CUDA_LAUNCH_BLOCKING": "1",
+                "TORCH_USE_CUDA_DSA": "",
             },
         },{
             "name": "REFUGE_MedSAM2",
@@ -48,6 +50,30 @@
                 "-val_freq","1",
                 "-dataset","REFUGE",
                 "-data_path","/media/grozta/SOYO/DATASET/SAM2/REFUGE",
+
+            ],
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0",
+            },
+        },{
+            "name": "BTCV_MedSAM2_tiny",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/train_3d.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false,
+            "args": [
+                "-net", "sam2",
+                "-exp_name", "BTCV_MedSAM2_debug",
+                "-sam_ckpt","./checkpoints/sam2_hiera_tiny.pt",
+                "-sam_config","sam2_hiera_t",
+                "-image_size","1024",
+                "-val_freq","1",
+                "-prompt","bbox",
+                "-prompt_freq","2",
+                "-dataset","btcv",
+                "-data_path","/media/grozta/SOYO/DATASET/SAM2/btcv",
 
             ],
             "env": {
