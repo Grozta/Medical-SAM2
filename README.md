@@ -7,13 +7,17 @@
 </p>
 
 Medical SAM 2, or say MedSAM-2, is an advanced segmentation model that utilizes the [SAM 2](https://github.com/facebookresearch/segment-anything-2) framework to address both 2D and 3D medical
-image segmentation tasks. This method is elaborated on the paper [Medical SAM 2: Segment Medical Images As Video Via Segment Anything Model 2](https://arxiv.org/abs/2408.00874).
+image segmentation tasks. This method is elaborated on the paper [Medical SAM 2: Segment Medical Images As Video Via Segment Anything Model 2](https://arxiv.org/abs/2408.00874) and [Medical SAM 2 Webpage](https://supermedintel.github.io/Medical-SAM2/).
 
 ## 🔥 A Quick Overview 
  <div align="center"><img width="880" height="350" src="./vis/framework.png"></div>
  
 ## 🩻 3D Abdomen Segmentation Visualisation
  <div align="center"><img width="420" height="420" src="./vis/example.gif"></div>
+
+## Pre-trained weight
+
+We released our pretrain weight [here](https://huggingface.co/jiayuanz3/MedSAM2_pretrain/tree/main)
 
 ## 🧐 Requirement
 
@@ -33,7 +37,6 @@ Operating System: Ubuntu 22.04
 Conda Version: 23.7.4
 Python Version: 3.12.4
 ```
-We released our pretrain weight [here](https://huggingface.co/jiayuanz3/MedSAM2_pretrain/tree/main)
 
  ## 🎯 Example Cases
  #### Download REFUGE or BCTV or your own dataset and put in the ``data`` folder, create the folder if it does not exist ⚒️
@@ -65,6 +68,7 @@ We released our pretrain weight [here](https://huggingface.co/jiayuanz3/MedSAM2_
 
 
 ## 🚨 News
+- 24-12-04. Our Medical SAM 2 paper was updated on Arxiv with new insights and results
 - 24-08-05. Our Medical SAM 2 paper **ranked #1 Paper of the day** collected by AK on Hugging Face 🤗
 - 24-08-05. Update 3D example details and pre-processed BTCV dataset download link 🔗
 - 24-08-05. Update 2D example details and pre-processed REFUGE dataset download link 🔗
@@ -74,10 +78,10 @@ We released our pretrain weight [here](https://huggingface.co/jiayuanz3/MedSAM2_
 
 ## 📝 Cite
  ~~~
-@misc{zhu_medical_2024,
-	title={Medical SAM 2: Segment medical images as video via Segment Anything Model 2},
-    author={Jiayuan Zhu and Yunli Qi and Junde Wu},
-    year = {2024},
+@misc{zhu2024medical,
+    title={Medical SAM 2: Segment medical images as video via Segment Anything Model 2},
+    author={Jiayuan Zhu and Abdullah Hamdi and Yunli Qi and Yueming Jin and Junde Wu},
+    year={2024},
     eprint={2408.00874},
     archivePrefix={arXiv},
     primaryClass={cs.CV}
